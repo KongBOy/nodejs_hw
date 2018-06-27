@@ -23,7 +23,7 @@
 </head>
 
 <body>
-    <form name="editform" action="userEdit" method="post" accept-charset="utf-8" onSubmit="return Check();">
+    <form name="editform" action="/w15_Nodejs_Database/userEdit" method="post" accept-charset="utf-8" onSubmit="return Check();">
         <h1>Account - Edit</h1>
         <input type="hidden" name="id" value="<%=data[0].id  %>" />
         <div class="row">
@@ -37,6 +37,10 @@
         <div class="row">
             <label>email：</label>
             <input type="text" name="email" placeholder="email" value="<%=data[0].email  %>">
+        </div>
+        <div class="row">
+            <label>phone：</label>
+            <input type="text" name="phone" placeholder="phone" value="<%=data[0].phone  %>">
         </div>
         <div class="row">
             <input class="btn" type='submit' value='Submit'>

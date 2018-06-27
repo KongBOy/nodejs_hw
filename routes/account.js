@@ -22,7 +22,7 @@ router.get('/', function(req, res, next) {
         var data = rows;
         console.log(data);
         // use index.ejs
-        res.render('index', { title: 'Account Information', data: data, user: user });
+        res.render('account', { title: 'Account Information', data: data, user: user });
     });
 
 });
@@ -57,7 +57,8 @@ router.post('/userAdd', function(req, res, next) {
             var sql = {
                 userid: req.body.userid,
                 password: req.body.password,
-                email: req.body.email
+                email: req.body.email,
+                phone: req.body.phone
             };
 
             //console.log(sql);
@@ -66,7 +67,7 @@ router.post('/userAdd', function(req, res, next) {
                     console.log(err);
                 }
                 res.setHeader('Content-Type', 'application/json');
-                res.redirect('/');
+                res.redirect('/w15_Nodejs_Database');
             });
         }
     });
@@ -104,7 +105,8 @@ router.post('/userEdit', function(req, res, next) {
     var sql = {
         userid: req.body.userid,
         password: req.body.password,
-        email: req.body.email
+        email: req.body.email,
+        phone: req.body.phone
     };
 
     var qur = db.query('UPDATE account SET ? WHERE id = ?', [sql, id], function(err, rows) {
@@ -113,7 +115,7 @@ router.post('/userEdit', function(req, res, next) {
         }
 
         res.setHeader('Content-Type', 'application/json');
-        res.redirect('/');
+        res.redirect('/w15_Nodejs_Database');
     });
 
 });
@@ -129,7 +131,7 @@ router.get('/userDelete', function(req, res, next) {
         if (err) {
             console.log(err);
         }
-        res.redirect('/');
+        res.redirect('/w15_Nodejs_Database');
     });
 });
 

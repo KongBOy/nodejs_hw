@@ -48,9 +48,11 @@ app.use(function(req, res, next) {
     next();
 });
 
+
+app.use('/w15_Nodejs_Database', account);
 app.use('/', routes);
 app.use('/users', users);
-app.use('/w15_Nodejs_Database', account);
+
 
 
 // catch 404 and forward to error handler
